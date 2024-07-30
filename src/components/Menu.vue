@@ -25,12 +25,12 @@
                 <v-list-item>
                   <v-list-item-content>
                     <v-row align="center" no-gutters>
-                      <!-- 이미지 부분 -->
+
                       <v-col cols="auto">
                         <v-img :src="item.imgUrl" height="100" width="100" contain />
                       </v-col>
 
-                      <!-- 텍스트 부분 -->
+
                       <v-col>
                         <v-list-item-title>{{ item.Title }}</v-list-item-title>
                         <v-list-item-subtitle>가격: {{ item.BasePrice }} 원</v-list-item-subtitle>
@@ -48,12 +48,12 @@
                 <v-list-item>
                   <v-list-item-content>
                     <v-row align="center" no-gutters>
-                      <!-- 이미지 부분 -->
+  
                       <v-col cols="auto">
                         <v-img :src="item.imgUrl" height="100" width="100" contain />
                       </v-col>
 
-                      <!-- 텍스트 부분 -->
+
                       <v-col>
                         <v-list-item-title>{{ item.Title }}</v-list-item-title>
                         <v-list-item-subtitle>가격: {{ item.BasePrice }} 원</v-list-item-subtitle>
@@ -70,12 +70,12 @@
                 <v-list-item>
                   <v-list-item-content>
                     <v-row align="center" no-gutters>
-                      <!-- 이미지 부분 -->
+ 
                       <v-col cols="auto">
                         <v-img :src="item.imgUrl" height="100" width="100" contain />
                       </v-col>
 
-                      <!-- 텍스트 부분 -->
+
                       <v-col>
                         <v-list-item-title>{{ item.Title }}</v-list-item-title>
                         <v-list-item-subtitle>가격: {{ item.BasePrice }} 원</v-list-item-subtitle>
@@ -145,12 +145,12 @@
               <v-list-item v-for="item in yogurtList" :key="item.Id">
                 <v-list-item-content>
                   <v-row align="center" no-gutters>
-                    <!-- 이미지 부분 -->
+
                     <v-col cols="auto">
                       <v-img :src="item.imgUrl" height="100" width="100" contain />
                     </v-col>
 
-                    <!-- 텍스트 부분 -->
+
                     <v-col>
                       <v-list-item-title>{{ item.Title }}</v-list-item-title>
                       <v-list-item-subtitle>가격: {{ item.BasePrice }} 원</v-list-item-subtitle>
@@ -165,12 +165,11 @@
               <v-list-item v-for="item in ChocolateList" :key="item.Id">
                 <v-list-item-content>
                   <v-row align="center" no-gutters>
-                    <!-- 이미지 부분 -->
+     
                     <v-col cols="auto">
                       <v-img :src="item.imgUrl" height="100" width="100" contain />
                     </v-col>
 
-                    <!-- 텍스트 부분 -->
                     <v-col>
                       <v-list-item-title>{{ item.Title }}</v-list-item-title>
                       <v-list-item-subtitle>가격: {{ item.BasePrice }} 원</v-list-item-subtitle>
@@ -185,12 +184,11 @@
               <v-list-item v-for="item in TeaList" :key="item.Id">
                 <v-list-item-content>
                   <v-row align="center" no-gutters>
-                    <!-- 이미지 부분 -->
+   
                     <v-col cols="auto">
                       <v-img :src="item.imgUrl" height="100" width="100" contain />
                     </v-col>
 
-                    <!-- 텍스트 부분 -->
                     <v-col>
                       <v-list-item-title>{{ item.Title }}</v-list-item-title>
                       <v-list-item-subtitle>가격: {{ item.BasePrice }} 원</v-list-item-subtitle>
@@ -219,12 +217,12 @@
               <v-list-item v-for="item in bakeryList" :key="item.Id">
                 <v-list-item-content>
                   <v-row align="center" no-gutters>
-                    <!-- 이미지 부분 -->
+
                     <v-col cols="auto">
                       <v-img :src="item.imgUrl" height="100" width="100" contain />
                     </v-col>
 
-                    <!-- 텍스트 부분 -->
+
                     <v-col>
                       <v-list-item-title>{{ item.Title }}</v-list-item-title>
                       <v-list-item-subtitle>가격: {{ item.BasePrice }} 원</v-list-item-subtitle>
@@ -259,12 +257,12 @@
               <v-list-item v-for="item in CakeList" :key="item.Id">
                 <v-list-item-content>
                   <v-row align="center" no-gutters>
-                    <!-- 이미지 부분 -->
+
                     <v-col cols="auto">
                       <v-img :src="item.imgUrl" height="100" width="100" contain />
                     </v-col>
 
-                    <!-- 텍스트 부분 -->
+
                     <v-col>
                       <v-list-item-title>{{ item.Title }}</v-list-item-title>
                       <v-list-item-subtitle>가격: {{ item.BasePrice }} 원</v-list-item-subtitle>
@@ -279,12 +277,11 @@
               <v-list-item v-for="item in NataList" :key="item.Id">
                 <v-list-item-content>
                   <v-row align="center" no-gutters>
-                    <!-- 이미지 부분 -->
+   
                     <v-col cols="auto">
                       <v-img :src="item.imgUrl" height="100" width="100" contain />
                     </v-col>
 
-                    <!-- 텍스트 부분 -->
                     <v-col>
                       <v-list-item-title>{{ item.Title }}</v-list-item-title>
                       <v-list-item-subtitle>가격: {{ item.BasePrice }} 원</v-list-item-subtitle>
@@ -309,12 +306,11 @@
               <v-list-item v-for="item in MilkList" :key="item.Id">
                 <v-list-item-content>
                   <v-row align="center" no-gutters>
-                    <!-- 이미지 부분 -->
+
                     <v-col cols="auto">
                       <v-img :src="item.imgUrl" height="100" width="100" contain />
                     </v-col>
 
-                    <!-- 텍스트 부분 -->
                     <v-col>
                       <v-list-item-title>{{ item.Title }}</v-list-item-title>
                       <v-list-item-subtitle>가격: {{ item.BasePrice }} 원</v-list-item-subtitle>
@@ -340,12 +336,12 @@
               <v-list-item v-for="item in BaristaProductList" :key="item.Id">
                 <v-list-item-content>
                   <v-row align="center" no-gutters>
-                    <!-- 이미지 부분 -->
+             
                     <v-col cols="auto">
                       <v-img :src="item.imgUrl" height="100" width="100" contain />
                     </v-col>
 
-                    <!-- 텍스트 부분 -->
+                
                     <v-col>
                       <v-list-item-title>{{ item.Title }}</v-list-item-title>
                       <v-list-item-subtitle>가격: {{ item.BasePrice }} 원</v-list-item-subtitle>
@@ -360,12 +356,12 @@
               <v-list-item v-for="item in ProductList" :key="item.Id">
                 <v-list-item-content>
                   <v-row align="center" no-gutters>
-                    <!-- 이미지 부분 -->
+                   
                     <v-col cols="auto">
                       <v-img :src="item.imgUrl" height="100" width="100" contain />
                     </v-col>
 
-                    <!-- 텍스트 부분 -->
+               
                     <v-col>
                       <v-list-item-title>{{ item.Title }}</v-list-item-title>
                       <v-list-item-subtitle>가격: {{ item.BasePrice }} 원</v-list-item-subtitle>
@@ -415,7 +411,7 @@ export default {
 }
 </script>
 <style scoped>
-/* 여기에 스타일을 추가하세요 */
+
 
 .v-list-item-content {
   display: flex;
@@ -429,13 +425,10 @@ export default {
 }
 
 .v-list-item-subtitle {
-  /* font-size: 0.875rem; */
   color: grey;
 }
 
-.v-list-item-group {
-  /* border-bottom: 1px solid #e0e0e0; */
-}
+
 
 .v-list-item {
   padding: 8px 8px;
