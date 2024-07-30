@@ -1,7 +1,7 @@
 <template>
     <v-container>
-        <h2> LOGIN PAGE </h2>
-
+        <h5>아이디</h5>
+        <h5>비밀번호</h5>
     </v-container>
 
 </template>
