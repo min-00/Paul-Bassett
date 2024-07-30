@@ -1,11 +1,7 @@
 <template>
   <v-app>
     <v-app-bar app dark>
-      <v-btn
-        icon
-        v-if="$route.name !== ''"
-        @click="$router.go(-1)"
-      >
+      <v-btn>
         <v-icon>mdi-arrow-left</v-icon>
       </v-btn>
       <v-toolbar-title>Header</v-toolbar-title>
@@ -19,27 +15,28 @@
 
     <!-- 하단 내비  -->
     <v-bottom-navigation app>
-        <v-btn @click="navigateTo('Main')">
+      <div class="d-flex justify-space-between">
+        <v-btn fab to="/">
           <span>홈</span>
           <v-icon>home</v-icon>
         </v-btn>
-        <v-btn @click="navigateTo('/Menu')">
+        <v-btn fab to="/MemberShip">
           <span>멤버십</span>
           <v-icon>approval</v-icon>
         </v-btn>
-        <v-btn @click="navigateTo('/Menu')">
+        <v-btn fab to="/Menu">
           <span>주문</span>
           <v-icon>local_cafe</v-icon>
         </v-btn>
-        <v-btn @click="navigateTo('/Menu')">
+        <v-btn fab to="/gift">
           <span>선물</span>
-          <v-icon>gift</v-icon>
+          <v-icon>card_membership</v-icon>
         </v-btn>
-        <v-btn @click="navigateTo('/Menu')">
+        <v-btn fab to="/MyPage">
           <span>전체메뉴</span>
           <v-icon>grid_view</v-icon>
         </v-btn>
-
+      </div>
 
     </v-bottom-navigation>
   </v-app>
@@ -56,9 +53,6 @@ export default {
 </script>
 
 <style>
-.v-bottom-navigation {
-  /* background-color: #fff; 하단 내비게이션의 배경색 */
-}
 
 
 </style>
