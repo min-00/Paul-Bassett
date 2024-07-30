@@ -5,6 +5,8 @@ import Menu from "@/components/Menu.vue"
 import MyPage from "@/components/MyPage.vue"
 import Login from "@/components/Login.vue"
 import Join from "@/components/Join.vue"
+import MemberShip from "@/components/membership.vue"
+import gift from "@/components/gift.vue"
 
 
 Vue.use(VueRouter)
@@ -34,6 +36,16 @@ const routes = [
     path: "/Join",
     name: "Join",
     component: Join
+  },
+  {
+    path: "/MemberShip",
+    name: "MemberShip",
+    component: MemberShip
+  },
+  {
+    path: "/gift",
+    name: "gift",
+    component: gift
 
   }
 
