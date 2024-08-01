@@ -17,7 +17,7 @@
     </v-main>
 
     <!-- 하단 내비  -->
-    <v-bottom-navigation app>
+    <v-bottom-navigation appv-if="visiableRouter.includes($route.name)">
       <div class="d-flex justify-space-between">
         <v-btn fab to="/" @click.native="updateAppBarTitle('홈', false)">
           <span>홈</span>
@@ -48,7 +48,8 @@
 export default {
   data() {
     return {
-      appBarTitle: '홈'
+      appBarTitle: "홈",
+      visiableRouter : ["Main", "Menu","MyPage","MemberShip","gift"]
     };
   },
   methods: {
@@ -57,8 +58,23 @@ export default {
       this.showBackButton = showBackButton;
     }
   }
-}
+};
+
+
 </script>
 
 <style>
+.circle {
+  border-radius: 50%;
+  background: pink;
+}
+
+.v-application{
+  font-family: "Noto Sans KR", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
 </style>
+
