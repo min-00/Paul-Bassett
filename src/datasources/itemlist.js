@@ -13,9 +13,11 @@ export default {
                 "hotImg" : require("@/assets/menuimage/커피/아메리카노.jpg"),
                 "iceImg" : require("@/assets/menuimage/커피/아이스아메리카노.jpg")
             },
-            "options": {
+            "mainOptions": {
                 "IceHot" : true,
                 "cupType" : true, 
+            },
+            "personalOptions": {
                 "extraShot" : true,
                 "waterAmount": true
             }
@@ -30,10 +32,12 @@ export default {
                 "hotImg" : require("@/assets/menuimage/커피/룽고.jpg"),
                 "iceImg" : require("@/assets/menuimage/커피/아이스룽고.jpg")
             },
-            "options": {
+            "mainOptions": {
                 "IceHot" : true,
                 "cupType" : true,
                 "size": true, 
+            },
+            "personalOptions": {
                 "extraShot" : true,
                 "waterAmount": true
             }
@@ -52,10 +56,12 @@ export default {
                 "hotImg" : require("@/assets/menuimage/커피/바닐라빈카페라떼.png"),
                 "iceImg" : require("@/assets/menuimage/커피/아이스바닐라빈카페라떼.png")
             },
-            "options": {
+            "mainOptions": {
                 "IceHot" : true,
                 "cupType" : true,
-                "size": true, 
+                "size": true
+            },
+            "personalOptions": {
                 "extraShot" : true,
                 "milkType": true,
                 "sugar": true
@@ -71,12 +77,15 @@ export default {
                 "hotImg" : require("@/assets/menuimage/커피/카페라떼.jpg"),
                 "iceImg" : require("@/assets/menuimage/커피/아이스카페라떼.jpg")
             },
-            "options": {
+            "mainOptions": {
                 "IceHot" : true,
                 "cupType" : true,
-                "size": true, 
+                "size": true
+            },
+            "personalOptions": {
                 "extraShot" : true,
-                "milkType": true
+                "milkType": true,
+            
             }
         },
         {   
@@ -89,10 +98,12 @@ export default {
                 "hotImg" : require("@/assets/menuimage/커피/카페모카.png"),
                 "iceImg" : require("@/assets/menuimage/커피/아이스카페모카.png")
             },
-            "options": {
+            "mainOptions": {
                 "IceHot" : true,
                 "cupType" : true,
                 "size": true, 
+            },
+            "personalOptions": {
                 "extraShot" : true,
                 "milkType": true,
                 "powder" : true,
@@ -109,10 +120,12 @@ export default {
                 "hotImg" : require("@/assets/menuimage/커피/카페라떼.jpg"),
                 "iceImg" : require("@/assets/menuimage/커피/아이스카페라떼.jpg")
             },
-            "options": {
+            "mainOptions": {
                 "IceHot" : true,
                 "cupType" : true,
                 "size": true, 
+            },            
+            "personalOptions": {
                 "extraShot" : true,
                 "milkType": true,
                 "HotLevel" : true
@@ -127,7 +140,7 @@ export default {
             "BasePrice" : "4400",
             "imgUrl": require("@/assets/menuimage/커피/에스프레소.jpg"),
             "imgUrlOption" : require("@/assets/menuimage/커피/에스프레소.jpg"),
-            "options": {
+            "mainOptions": {
                 "cupType" : true
             }
         },
@@ -138,8 +151,10 @@ export default {
             "BasePrice" : "4400",
             "imgUrl": require("@/assets/menuimage/커피/에스프레소마키아토.jpg"),
             "imgUrlOption" : require("@/assets/menuimage/커피/에스프레소마키아토.jpg"),
-            "options": {
-                "cupType" : true,
+            "mainOptions": {
+                "cupType" : true
+            },
+            "personalOptions": {
                 "milkType": true
             }
         },
@@ -150,7 +165,7 @@ export default {
             "BasePrice" : "4900",
             "imgUrl": require("@/assets/menuimage/커피/초콜릿에스프레소콘파나.png"),
             "imgUrlOption" : require("@/assets/menuimage/커피/초콜릿에스프레소콘파나.png"),
-            "options": {
+            "mainOptions": {
                 "cupType" : true
             }
         }
@@ -165,8 +180,10 @@ export default {
             "BasePrice" : "6500",
             "imgUrl": require("@/assets/menuimage/음료/커피칩라떼프라페.png"),
             "imgUrlOption" : require("@/assets/menuimage/음료/커피칩라떼프라페.png"),
-            "options": {
-                "cupType" : true,
+            "mainOptions": {
+                "cupType" : true
+            },            
+            "personalOptions": {
                 "extraShot" : true,
                 "IceCreamtopping" : true
             }
@@ -178,8 +195,10 @@ export default {
             "BasePrice" : "6800",
             "imgUrl": require("@/assets/menuimage/음료/더블초콜릿프라페.png"),
             "imgUrlOption" : require("@/assets/menuimage/음료/더블초콜릿프라페.png"),
-            "options": {
-                "cupType" : true,
+            "mainOptions": {
+                "cupType" : true
+            },            
+            "personalOptions": {
                 "extraShot" : true,
                 "IceCreamtopping" : true
             }
@@ -191,8 +210,10 @@ export default {
             "BasePrice" : "6800",
             "imgUrl": require("@/assets/menuimage/음료/제주말차라떼프라페.png"),
             "imgUrlOption" : require("@/assets/menuimage/음료/제주말차라떼프라페.png"),
-            "options": {
-                "cupType" : true,
+            "mainOptions": {
+                "cupType" : true
+            },
+            "personalOptions": {
                 "extraShot" : true,
                 "IceCreamtopping" : true
             }
@@ -204,8 +225,10 @@ export default {
             "BasePrice" : "6800",
             "imgUrl": require("@/assets/menuimage/음료/카라멜마키아토프라페.png"),
             "imgUrlOption" : require("@/assets/menuimage/음료/카라멜마키아토프라페.png"),
-            "options": {
-                "cupType" : true,
+            "mainOptions": {
+                "cupType" : true
+            },
+            "personalOptions": {
                 "extraShot" : true,
                 "IceCreamtopping" : true
             }
@@ -217,8 +240,10 @@ export default {
             "BasePrice" : "7200",
             "imgUrl": require("@/assets/menuimage/음료/머스크멜론쉐이크.png"),
             "imgUrlOption" : require("@/assets/menuimage/음료/머스크멜론쉐이크.png"),
-            "options": {
-                "cupType" : true,
+            "mainOptions": {
+                "cupType" : true
+            },
+            "personalOptions": {
                 "IceCreamtopping" : true
             }
         },
@@ -231,8 +256,10 @@ export default {
             "BasePrice" : "6800",
             "imgUrl": require("@/assets/menuimage/음료/납작복숭아에이드.png"),
             "imgUrlOption" : require("@/assets/menuimage/음료/납작복숭아에이드.png"),
-            "options": {
-                "cupType" : true,
+            "mainOptions": {
+                "cupType" : true
+            },
+            "personalOptions": {
                 "sugar" : true
             }
         },
@@ -243,8 +270,10 @@ export default {
             "BasePrice" : "6500",
             "imgUrl": require("@/assets/menuimage/음료/토마토주스.png"),
             "imgUrlOption" : require("@/assets/menuimage/음료/토마토주스.png"),
-            "options": {
-                "cupType" : true,
+            "mainOptions": {
+                "cupType" : true
+            },
+            "personalOptions": {
                 "sugar" : true
             }
         },
@@ -255,8 +284,11 @@ export default {
             "BasePrice" : "6800",
             "imgUrl": require("@/assets/menuimage/음료/고창수박주스.png"),
             "imgUrlOption" : require("@/assets/menuimage/음료/고창수박주스.png"),
-            "options": {
-                "cupType" : true,
+            "mainOptions": {
+                "cupType" : true
+                
+            },
+            "personalOptions": {
                 "sugar" : true
             }
         },
@@ -267,8 +299,10 @@ export default {
             "BasePrice" : "6900",
             "imgUrl": require("@/assets/menuimage/음료/쿨라임알로에에이드.png"),
             "imgUrlOption" : require("@/assets/menuimage/음료/쿨라임알로에에이드.png"),
-            "options": {    
-                "cupType" : true,
+            "mainOptions": {    
+                "cupType" : true
+            },
+            "personalOptions": {
                 "sugar" : true
             }
         },
@@ -281,8 +315,11 @@ export default {
             "BasePrice" : "6600",
             "imgUrl": require("@/assets/menuimage/음료/딸기바나나요거트.png"),
             "imgUrlOption" : require("@/assets/menuimage/음료/딸기바나나요거트.png"),
-            "options": {
-                "cupType" : true,
+            "mainOptions": {
+                "cupType" : true
+                
+            },
+            "personalOptions": {
                 "sugar" : true
             }
         },
@@ -293,8 +330,11 @@ export default {
             "BasePrice" : "6600",
             "imgUrl": require("@/assets/menuimage/음료/복숭아바나나요거트.png"),
             "imgUrlOption" : require("@/assets/menuimage/음료/복숭아바나나요거트.png"),
-            "options": {
-                "cupType" : true,
+            "mainOptions": {
+                "cupType" : true
+                
+            },
+            "personalOptions": {
                 "sugar" : true
             }
         },
@@ -305,8 +345,11 @@ export default {
             "BasePrice" : "6600",
             "imgUrl": require("@/assets/menuimage/음료/블루베리바나나요거트.png"),
             "imgUrlOption" : require("@/assets/menuimage/음료/블루베리바나나요거트.png"),
-            "options": {
-                "cupType" : true,
+            "mainOptions": {
+                "cupType" : true
+                
+            },
+            "personalOptions": {
                 "sugar" : true
             }
         },
@@ -325,10 +368,13 @@ ChocolateList: [
                 "hotImg" : require("@/assets/menuimage/음료/밀크초콜릿.png"),
                 "iceImg" : require("@/assets/menuimage/음료/아이스밀크초콜릿.png")
             },
-            "options": {
+            "mainOptions": {
                 "IceHot" : true,
                 "cupType" : true,
                 "size": true, 
+                
+            },
+            "personalOptions": {
                 "extraShot" : true,
                 "HotLevel" : true,
                 "sugar" : true
@@ -345,10 +391,12 @@ ChocolateList: [
                 "hotImg" : require("@/assets/menuimage/음료/다크초콜릿.png"),
                 "iceImg" : require("@/assets/menuimage/음료/아이스다크초콜릿.png"),
             },
-            "options": {
+            "mainOptions": {
                 "IceHot" : true,
                 "cupType" : true,
                 "size": true, 
+            },
+            "personalOptions": {
                 "extraShot" : true,
                 "HotLevel" : true,
                 "sugar" : true
@@ -367,11 +415,11 @@ TeaList : [
                 "hotImg" : require("@/assets/menuimage/음료/샤인다즐링홍차.jpg"),
                 "iceImg" : require("@/assets/menuimage/음료/아이스샤인다즐링홍차.png")
             },
-            "options": {
+            "mainOptions": {
                 "IceHot" : true,
-                "cupType" : true,
+                "cupType" : true
             }
-        },
+    },
         {   
             "Id" : 125,
             "Title" : "멜로우 우바 홍차",
@@ -382,9 +430,9 @@ TeaList : [
                 "hotImg" : require("@/assets/menuimage/음료/멜로우우바홍차.png"),
                 "iceImg" : require("@/assets/menuimage/음료/아이스멜로우우바홍차.png")
             },
-            "options": {
+            "mainOptions": {
                 "IceHot" : true,
-                "cupType" : true,
+                "cupType" : true
             }
         },
         {   
@@ -397,7 +445,7 @@ TeaList : [
                 "hotImg" : require("@/assets/menuimage/음료/로얄캐모마일허브차.png"),
                 "iceImg" : require("@/assets/menuimage/음료/아이스로얄캐모마일허브차.png")
             },
-            "options": {
+            "mainOptions": {
                 "IceHot" : true,
                 "cupType" : true,
             }
@@ -414,7 +462,7 @@ bakeryList : [
             "BasePrice" : "3300",
             "imgUrl": require("@/assets/menuimage/빵/얼그레이휘낭시에.jpg"),
             "imgUrlOption" : require("@/assets/menuimage/빵/얼그레이휘낭시에.jpg"),
-            "options": {
+            "mainOptions": {
                 "packaging" : true
             }
         },
@@ -423,9 +471,9 @@ bakeryList : [
             "Title" : "오리지널 휘낭시에",
             "Info" : "프랑스 전통 방식으로 만든 버터 풍미가 깊은 오리지널 휘낭시에",
             "BasePrice" : "3300",
-            "imgUrl": "@/assets/menuimage/커피/아메리카노.jpg",
+            "imgUrl": require("@/assets/menuimage/빵/오리지널휘낭시에.jpg"),
             "imgUrlOption" : require("@/assets/menuimage/빵/오리지널휘낭시에.jpg"),
-            "options": {
+            "mainOptions": {
                 "packaging" : true
             }
         },
@@ -436,7 +484,7 @@ bakeryList : [
             "BasePrice" : "7000",
             "imgUrl": require("@/assets/menuimage/빵/피칸파이.png"),
             "imgUrlOption" : require("@/assets/menuimage/빵/피칸파이.png"),
-            "options": {
+            "mainOptions": {
                 "packaging" : true
             }
         }
@@ -449,7 +497,7 @@ SandwichList : [
             "BasePrice" : "5900",
             "imgUrl": require("@/assets/menuimage/빵/에그샐러드샌드위치.png"),
             "imgUrlOption" : require("@/assets/menuimage/빵/에그샐러드샌드위치.png"),
-            "options": {
+            "mainOptions": {
                 "packaging" : true
             }
         },
@@ -460,7 +508,7 @@ SandwichList : [
             "BasePrice" : "5900",
             "imgUrl": require("@/assets/menuimage/빵/햄에그잉글리시머핀.png"),
             "imgUrlOption" : require("@/assets/menuimage/빵/햄에그잉글리시머핀.png"),
-            "options": {
+            "mainOptions": {
                 "packaging" : true
             }
         },
@@ -471,7 +519,7 @@ SandwichList : [
             "BasePrice" : "5900",
             "imgUrl": require("@/assets/menuimage/빵/베이컨에그잉글리시머핀.png"),
             "imgUrlOption" : require("@/assets/menuimage/빵/베이컨에그잉글리시머핀.png"),
-            "options": {
+            "mainOptions": {
                 "packaging" : true
             }
         },
@@ -485,7 +533,7 @@ CakeList : [
             "BasePrice" : "7500",
             "imgUrl": require("@/assets/menuimage/빵/딸기생크림케이크.png"),
             "imgUrlOption" : require("@/assets/menuimage/빵/딸기생크림케이크.png"),
-            "options": {
+            "mainOptions": {
                 "packaging" : true
             }
         },
@@ -496,7 +544,7 @@ CakeList : [
             "BasePrice" : "7000",
             "imgUrl": require("@/assets/menuimage/빵/생크림소프트케이크.jpg"),
             "imgUrlOption" : require("@/assets/menuimage/빵/생크림소프트케이크.jpg"),
-            "options": {
+            "mainOptions": {
                 "packaging" : true
             }
         },
@@ -507,7 +555,7 @@ CakeList : [
             "BasePrice" : "7000",
             "imgUrl": require("@/assets/menuimage/빵/티라미수.png"),
             "imgUrlOption" : require("@/assets/menuimage/빵/티라미수.png"),
-            "options": {
+            "mainOptions": {
                 "packaging" : true
             }
         },
@@ -520,7 +568,7 @@ NataList : [
             "BasePrice" : "2800",
             "imgUrl": require("@/assets/menuimage/빵/나타오리지널.png"),
             "imgUrlOption" : require("@/assets/menuimage/빵/나타오리지널.png"),
-            "options": {
+            "mainOptions": {
                 "packaging" : true
             }
         },
@@ -531,7 +579,7 @@ NataList : [
             "BasePrice" : "2800",
             "imgUrl": require("@/assets/menuimage/빵/나타애플.png"),
             "imgUrlOption" : require("@/assets/menuimage/빵/나타애플.png"),
-            "options": {
+            "mainOptions": {
                 "packaging" : true
             }
         },
@@ -542,7 +590,7 @@ NataList : [
             "BasePrice" : "2800",
             "imgUrl": require("@/assets/menuimage/빵/나타초콜릿.png"),
             "imgUrlOption" : require("@/assets/menuimage/빵/나타초콜릿.png"),
-            "options": {
+            "mainOptions": {
                 "packaging" : true
             }
         }
@@ -556,7 +604,10 @@ NataList : [
             "Info" : "우유 본연의 담백하고 산뜻한 맛을 담은 상하목장 밀크 아이스크림입니다.",
             "BasePrice" : "4000",
             "imgUrl": require("@/assets/menuimage/아이스크림/밀크아이스크림컵.jpg"),
-            "imgUrlOption" : require("@/assets/menuimage/아이스크림/밀크아이스크림컵.jpg")
+            "imgUrlOption" : require("@/assets/menuimage/아이스크림/밀크아이스크림컵.jpg"),
+            "mainOptions": {
+                "packaging" : true
+            }
         },
         {   
             "Id" : 140,
@@ -564,7 +615,10 @@ NataList : [
             "Info" : "우유 본연의 담백하고 산뜻한 맛을 담은 상하목장 밀크 아이스크림입니다.",
             "BasePrice" : "4000",
             "imgUrl": require("@/assets/menuimage/아이스크림/밀크아이스크림콘.jpg"),
-            "imgUrlOption" : require("@/assets/menuimage/아이스크림/밀크아이스크림콘.jpg")
+            "imgUrlOption" : require("@/assets/menuimage/아이스크림/밀크아이스크림콘.jpg"),
+            "mainOptions": {
+                "packaging" : true
+            }
         },
         {   
             "Id" : 141,
@@ -573,8 +627,10 @@ NataList : [
             "BasePrice" : "5000",
             "imgUrl": require("@/assets/menuimage/아이스크림/아포가토.jpg"),
             "imgUrlOption" : require("@/assets/menuimage/아이스크림/아포가토.jpg"),
-            "options": {
-                "cupType" : true,
+            "mainOptions": {
+                "cupType" : true
+            },
+            "personalOptions": {
                 "extraShot" : true,
                 "IceCreamtopping" : true
             }
