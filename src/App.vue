@@ -1,7 +1,11 @@
 <template>
   <v-app>
     <v-app-bar app dark>
-      <v-btn icon v-if="$route.name !== 'home'" @click="$router.go(-1)">
+      <v-btn
+        icon
+        v-if="$route.name !== 'home'"
+        @click="$router.go(-1)"
+      >
         <v-icon>mdi-arrow-left</v-icon>
       </v-btn>
       <v-toolbar-title>{{ appBarTitle }}</v-toolbar-title>
@@ -13,7 +17,7 @@
     </v-main>
 
     <!-- 하단 내비  -->
-    <v-bottom-navigation app v-if="visiableRouter.includes($route.name)">
+    <v-bottom-navigation app>
       <div class="d-flex justify-space-between">
         <v-btn fab to="/" @click.native="updateAppBarTitle('홈', false)">
           <span>홈</span>
@@ -44,8 +48,7 @@
 export default {
   data() {
     return {
-      appBarTitle: "홈",
-      visiableRouter : ["Main", "Menu","MyPage","MemberShip","gift"]
+      appBarTitle: '홈'
     };
   },
   methods: {
@@ -54,14 +57,9 @@ export default {
       this.showBackButton = showBackButton;
     }
   }
-};
-
-
+}
 </script>
 
 <style>
-.circle {
-  border-radius: 50%;
-  background: pink;
-}
+
 </style>
