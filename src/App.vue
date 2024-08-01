@@ -64,4 +64,12 @@ export default {
   border-radius: 50%;
   background: pink;
 }
+
+.v-application{
+  font-family: "Noto Sans KR", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
 </style>
