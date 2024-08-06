@@ -2,11 +2,15 @@ import Vue from "vue"
 import VueRouter from "vue-router"
 import Main from "@/components/Main.vue"
 import Menu from "@/components/Menu.vue"
+
 import MyPage from "@/components/MyPage.vue"
 import Login from "@/components/Login.vue"
 import Join from "@/components/Join.vue"
 import MemberShip from "@/components/membership.vue"
 import gift from "@/components/gift.vue"
+import MenuDetail from "@/components/MenuDetail.vue"
+import Cart from '@/components/cart.vue';
+
 
 
 Vue.use(VueRouter)
@@ -22,6 +26,16 @@ const routes = [
     name: "Menu",
     component: Menu
   },
+  {
+    path: "/MenuDetail/:id",
+    name: "MenuDetail",
+    component: MenuDetail
+  },
+  {
+      path: '/cart',
+      name: 'Cart',
+      component: Cart
+    },
   {
     path: "/MyPage",
     name: "MyPage",
