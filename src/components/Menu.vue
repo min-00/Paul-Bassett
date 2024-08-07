@@ -36,7 +36,7 @@
               <v-list-item v-for="item in coffeeList" :key="item.Id" 
               @click="goToDetail(item.Id)">
                   <div class="menulist_box">
-                      <v-img class="img-rounded" :src="item.imgUrl" contain />
+                      <v-img class="img-rounded" :src="item.imgUrl" cover />
                     <div class="menulist_title">
                       <p>{{ item.Title }}</p>
                       <span>{{ item.BasePrice }} 원</span>
@@ -50,7 +50,7 @@
             <v-list>
               <v-list-item v-for="item in letteList" :key="item.Id" @click="goToDetail(item.Id)">
                     <div class="menulist_box">
-                      <v-img class="img-rounded" :src="item.imgUrl" contain />
+                      <v-img class="img-rounded" :src="item.imgUrl" cover />
                     <div class="menulist_title">
                       <p>{{ item.Title }}</p>
                       <span>{{ item.BasePrice }} 원</span>
@@ -64,7 +64,7 @@
             <v-list>
               <v-list-item v-for="item in espressoList" :key="item.Id" @click="goToDetail(item.Id)">
                   <div class="menulist_box">
-                      <v-img class="img-rounded" :src="item.imgUrl" contain />
+                      <v-img class="img-rounded" :src="item.imgUrl" cover />
                     <div class="menulist_title">
                       <p>{{ item.Title }}</p>
                       <span>{{ item.BasePrice }} 원</span>
@@ -87,7 +87,7 @@
               <v-list-item v-for="item in FrappeList" :key="item.Id"
               @click="goToDetail(item.Id)">
                     <div class="menulist_box">
-                      <v-img class="img-rounded" :src="item.imgUrl" contain />
+                      <v-img class="img-rounded" :src="item.imgUrl" cover />
                     <div class="menulist_title">
                       <p>{{ item.Title }}</p>
                       <span>{{ item.BasePrice }} 원</span>
@@ -102,7 +102,7 @@
               <v-list-item v-for="item in AdeList" :key="item.Id"             
               @click="goToDetail(item.Id)">
                     <div class="menulist_box">
-                      <v-img class="img-rounded" :src="item.imgUrl" contain />
+                      <v-img class="img-rounded" :src="item.imgUrl" cover />
                     <div class="menulist_title">
                       <p>{{ item.Title }}</p>
                       <span>{{ item.BasePrice }} 원</span>
@@ -117,7 +117,7 @@
               <v-list-item v-for="item in yogurtList" :key="item.Id"
               @click="goToDetail(item.Id)">
                     <div class="menulist_box">
-                      <v-img class="img-rounded" :src="item.imgUrl" contain />
+                      <v-img class="img-rounded" :src="item.imgUrl" cover />
                     <div class="menulist_title">
                       <p>{{ item.Title }}</p>
                       <span>{{ item.BasePrice }} 원</span>
@@ -132,7 +132,7 @@
               <v-list-item v-for="item in ChocolateList" :key="item.Id"
               @click="goToDetail(item.Id)">
                     <div class="menulist_box">
-                      <v-img class="img-rounded" :src="item.imgUrl" contain />
+                      <v-img class="img-rounded" :src="item.imgUrl" cover />
                     <div class="menulist_title">
                       <p>{{ item.Title }}</p>
                       <span>{{ item.BasePrice }} 원</span>
@@ -147,7 +147,7 @@
               <v-list-item v-for="item in TeaList" :key="item.Id"
               @click="goToDetail(item.Id)">
                     <div class="menulist_box">
-                      <v-img class="img-rounded" :src="item.imgUrl" contain />
+                      <v-img class="img-rounded" :src="item.imgUrl" cover />
                     <div class="menulist_title">
                       <p>{{ item.Title }}</p>
                       <span>{{ item.BasePrice }} 원</span>
@@ -173,7 +173,7 @@
               <v-list-item v-for="item in bakeryList" :key="item.Id" 
               @click="goToDetail(item.Id)">
                     <div class="menulist_box">
-                      <v-img class="img-rounded" :src="item.imgUrl" contain />
+                      <v-img class="img-rounded" :src="item.imgUrl" cover />
                     <div class="menulist_title">
                       <p>{{ item.Title }}</p>
                       <span>{{ item.BasePrice }} 원</span>
@@ -188,7 +188,7 @@
               <v-list-item v-for="item in SandwichList" :key="item.Id"
               @click="goToDetail(item.Id)">
                     <div class="menulist_box">
-                      <v-img class="img-rounded" :src="item.imgUrl" contain />
+                      <v-img class="img-rounded" :src="item.imgUrl" cover />
                     <div class="menulist_title">
                       <p>{{ item.Title }}</p>
                       <span>{{ item.BasePrice }} 원</span>
@@ -203,7 +203,7 @@
               <v-list-item v-for="item in CakeList" :key="item.Id"
               @click="goToDetail(item.Id)">
                     <div class="menulist_box">
-                      <v-img class="img-rounded" :src="item.imgUrl" contain />
+                      <v-img class="img-rounded" :src="item.imgUrl" cover />
                     <div class="menulist_title">
                       <p>{{ item.Title }}</p>
                       <span>{{ item.BasePrice }} 원</span>
@@ -218,7 +218,7 @@
               <v-list-item v-for="item in NataList" :key="item.Id"
               @click="goToDetail(item.Id)">
                     <div class="menulist_box">
-                      <v-img class="img-rounded" :src="item.imgUrl" contain />
+                      <v-img class="img-rounded" :src="item.imgUrl" cover />
                     <div class="menulist_title">
                       <p>{{ item.Title }}</p>
                       <span>{{ item.BasePrice }} 원</span>
@@ -242,7 +242,7 @@
               <v-list-item v-for="item in MilkList" :key="item.Id"
               @click="goToDetail(item.Id)">
                     <div class="menulist_box">
-                      <v-img class="img-rounded" :src="item.imgUrl" contain />
+                      <v-img class="img-rounded" :src="item.imgUrl" cover />
                     <div class="menulist_title">
                       <p>{{ item.Title }}</p>
                       <span>{{ item.BasePrice }} 원</span>
@@ -266,7 +266,7 @@
               <v-list-item v-for="item in BaristaProductList" :key="item.Id"
               @click="goToDetail(item.Id)">
                     <div class="menulist_box">
-                      <v-img class="img-rounded" :src="item.imgUrl" contain />
+                      <v-img class="img-rounded" :src="item.imgUrl" cover />
                     <div class="menulist_title">
                       <p>{{ item.Title }}</p>
                       <span>{{ item.BasePrice }} 원</span>
@@ -281,7 +281,7 @@
               <v-list-item v-for="item in ProductList" :key="item.Id" 
               @click="goToDetail(item.Id)">
                     <div class="menulist_box">
-                      <v-img class="img-rounded" :src="item.imgUrl" contain />
+                      <v-img class="img-rounded" :src="item.imgUrl" cover />
                     <div class="menulist_title">
                       <p>{{ item.Title }}</p>
                       <span>{{ item.BasePrice }} 원</span>
@@ -293,6 +293,22 @@
         </v-tabs-items>
       </v-tab-item>
     </v-tabs-items>
+
+
+    <div class="select_store">
+      <!-- <span> 주문할 매장을 선택해 주세요 </span> -->
+      <span> 
+        <v-icon>
+          location_on
+        </v-icon>
+        강남삼성타운점 
+      </span>
+      <router-link :to="{ path: '/StoreSelection' }">
+        <v-btn class="select_store_btn">
+          선택
+        </v-btn>
+      </router-link>
+    </div>
   </div>
 </template>
 
@@ -346,7 +362,29 @@ export default {
 };
 </script>
 <style>
-.container{
+.select_store{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 50px;
+  background: #503629;
+  position: fixed;
+  color: #fff;
+  font-size: 16px;
+  bottom: 70px;
+  padding: 15px 15px;
+  box-sizing: border-box;
+}
+.select_store_btn{
+  height: 20px !important;
+  width: 60px !important;
+  background: #ffffff !important;
+  border-radius: 50px;
+  font-size: 12px !important;
+}
+
+.coverer{
   padding:  0;
   margin: 0;
 }
@@ -364,7 +402,7 @@ export default {
   min-width: auto;
 }
 .v-chip-group .v-slide-group__content {
-  padding: 15px 15px !important;
+  padding: 10px 10px !important;
   box-sizing: border-box !important;
 }
 
@@ -389,7 +427,7 @@ export default {
   gap: 10px;
 }
 .img-rounded {
-  border-radius: 20px;
+  border-radius: 20px !important;
   border: 1px solid #fbfbfb;
   width: 100px; 
   height: 100px; 
@@ -409,7 +447,7 @@ export default {
   box-shadow: 1px 1px 1px 1px rgba(0,0,0,0.5);
 }
 .v-list-item {
-  padding: 15px 15px;
+  /* padding: 15px 15px; */
   box-sizing: border-box;
 }
 </style>

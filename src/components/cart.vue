@@ -1,9 +1,19 @@
 <template>
   <div>
     <div class="header">
-      <v-icon style="flex: 0;" @click="goBack">chevron_left</v-icon>
+    <div @click="goBack" class="goBack">
+      <v-icon size="28">
+        chevron_left
+      </v-icon>
+    </div>
+     <!-- <p class="menu_title">메뉴상세</p> -->
       <p class="menu_title">장바구니 ( {{ cartQuantity }} )</p>
-      <v-icon style="flex: 0;" @click="clearCart">delete</v-icon>
+    <div @click="clearCart" class="delete">
+      <v-icon size="28">
+        delete
+      </v-icon>
+    </div>
+      <v-icon @click="clearCart"></v-icon>
     </div>
 
     <div class="select_area">
@@ -109,24 +119,12 @@ export default {
 </script>
 
 
+
 <style>
+
 ul li{
   list-style: none;
 }
-.header {
-  display: flex;
-  align-items: center;
-  padding: 16px;
-  border-bottom: 1px solid #ddd;
-}
-
-.menu_title {
-  flex: 1;
-  text-align: center;
-  font-size: 18px;
-  font-weight: bold;
-}
-
 .select_area {
   display: flex;
   align-items: center;

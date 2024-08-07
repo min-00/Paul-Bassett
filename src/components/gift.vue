@@ -1,8 +1,10 @@
 <template>
-    <v-container>
-        <h2> Gift </h2>
 
-    </v-container>
+<v-container>
+<div class="header">
+    <p class="menu_title">선물하기</p>
+</div>
+</v-container>
 
 </template>
 <script>

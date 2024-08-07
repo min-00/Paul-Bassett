@@ -1,8 +1,10 @@
 <template>
-    <v-container>
-        <h2> MYPAGE PAGE </h2>
 
-    </v-container>
+<v-container>
+<div class="header">
+    <p class="menu_title">마이페이지</p>
+</div>
+</v-container>
 
 </template>
 <script>

@@ -2,15 +2,24 @@
   <div v-if="item">
   <v-container>
 <div class="header">
-    <v-icon style="flex: 0;" @click="goBack">chevron_left</v-icon>
+    <div @click="goBack" class="goBack">
+      <v-icon size="28">
+        chevron_left
+      </v-icon>
+    </div>
     <p class="menu_title">메뉴상세</p>
     <div class="right_icons">
-    <v-icon
-      :class="{'favorite-active': isFavorite, 'default-icon': !isFavorite}"
-      @click="FavoriteClick"
-    >
-      favorite
-    </v-icon>
+    <div
+          class="favorite_btn"
+          @click="toggleFavorite"
+        >
+          <v-icon
+            size="24"
+            :color="isFavorite ? 'red' : '#000000'"
+          >
+            {{ isFavorite ? 'mdi-heart' : 'mdi-heart-outline' }}
+          </v-icon>
+        </div>
 
     <Modal
       :isOpen="showLoginModal"
@@ -156,8 +165,9 @@
     <div v-if="item.personalOptions"  class="personal_option" @click="showBottomSheet = true">
       <p>퍼스널 옵션 추가</p>
       <v-icon> keyboard_arrow_right </v-icon>
+    
     </div>
-    <div class="bar"></div>
+    <!-- <v-divider></v-divider> -->
 
 
     <!-- 퍼스널 옵션 선택 영역 -->
@@ -353,7 +363,6 @@
       
     </v-sheet>
   </v-bottom-sheet>
-  <div class="box"></div>
 
     <div class="order_section">
       <div class="order_sec_top">
@@ -510,20 +519,24 @@ export default {
 
     this.$store.dispatch('addToCart', cartItem);
   },
-    FavoriteClick() {
-        if (!this.isLoggedIn) { // 로그인이 되어 있지 않은 경우
-          this.showLoginModal = true;
+  toggleFavorite() {
+      if (!this.isLoggedIn) {
+        this.showLoginModal = true;
+        setTimeout(() => {
+          this.$router.push('/login');
+        }, 2000);} 
+        else {
+        this.isFavorite = !this.isFavorite;
+        if (this.isFavorite) {
+          this.showAddFavoriteModal = true;
         } else {
-          this.isFavorite = !this.isFavorite;
-
-          // 나만의 메뉴에 추가하거나 제거할 때 모달 표시
-          if (this.isFavorite) {
-            this.showAddFavoriteModal = true;
-          } else {
-            this.showRemoveFavoriteModal = true;
-          }
+          this.showRemoveFavoriteModal = true;
         }
-    },  
+      }
+    },
+    goBack() {
+      this.$router.go(-1); // 뒤로 가기
+    },
     increaseQuantity() {
       this.quantity += 1;
     },
@@ -574,46 +587,22 @@ export default {
 </script>
 
 <style>
-.box{
-  height: 300px;
-}
 
-/* 헤더 */
 .container {
   margin: 0;
   padding: 0;
+  height: 950px;
 }
 
 .v-application p{
   margin: 0;
   padding: 0;
 }
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px 20px;
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-
-.menu_title {
-  text-align: center;
-  margin: 0;
-  flex-grow: 1;
-}
 
 .v-icon{
   background: transparent;
   border: none;
   /* display: block; */
-}
-
-.right_icons {
-  display: flex;
-  gap: 10px;
-  cursor: pointer;
 }
 .default-icon{
   color: #000000 !important;
@@ -832,8 +821,11 @@ button {
     display: flex;
     align-items: center;
     padding: 1em;
+    box-sizing: border-box;
     width: 100%;
-    height: 50px;
+    height: 58px;
+    border-bottom: 8px solid #F6F6F6;
+    /* background: #F6F6F6; */
     justify-content: space-between;
 }
 
