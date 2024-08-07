@@ -13,22 +13,22 @@
                     <v-card style="margin: 20px">
                         <p class="pa-3">현재 위치에서 5Km 이내 매장에서만 주문할 수 있습니다. 크라운오더는 매장운영 종료 시간 30분 전 마감됩니다. </p>
                     </v-card>
-    
-                    <v-card v-for="store in stores" :key="store.locId" style="margin: 20px">
-                        <v-layout align-center >
-                            <v-flex xs2>
-                                <v-img :src="dd" width="80px" contain ></v-img>
-                            </v-flex>
-                            <v-flex xs10>
-                                <v-card-title>{{store.name}}</v-card-title>
-                                <v-card-subtitle>{{store.address}}</v-card-subtitle>
-                                <v-card-text>{{store.영업시간}}</v-card-text>
-                            </v-flex>
-                        </v-layout>
-                    </v-card>
+
+            <v-list>
+                <v-list-item v-for="store in stores" :key="store.locId">
+                    <div class="loclist_box">
+                        <v-img class="loc_img_rounded" :src="store.loc_img" cover />
+                    <div class="loclist_box_title">
+                        <span>{{store.name}}</span>
+                        <span>{{store.address}}</span>
+                        <span> {{store.영업시간}} </span>
+                    </div>
+                    </div>
+                </v-list-item>
+            </v-list>
             </v-tab-item>
     
-            <v-tab-item value="map" style="  height:730px">
+            <v-tab-item value="map" style="  height:100vh">
                 <v-card style="margin: 20px; z-index: 10;">
                     <p class="pa-3">현재 위치에서 5Km 이내 매장에서만 주문할 수 있습니다. 크라운오더는 매장운영 종료 시간 30분 전 마감됩니다. </p>
                 </v-card>
@@ -54,13 +54,6 @@ export default{
             stores: CommonOption.locationList,
         }
     },
-    computed: {
-                        imageSrc() {
-                return require(
-                    CommonOption.locationList.map(store=> {
-                    (store.loc_img)}));
-                }
-    },
     components: {
         KakaoMap,
     },
@@ -75,5 +68,32 @@ export default{
 </script>
 
 <style>
+.loclist_box{
+    display: flex;
+    padding: 1em;
+    gap: 10px;
+    box-sizing: border-box;
+}
+.loclist_box_title{
+    display: flex;
+    flex-direction: column;
+    white-space: nowrap;
+    justify-content: center;
+}
+.loclist_box_title span:nth-child(1){
+    font-weight: bold;
+}
+.loclist_box_title span:nth-child(2){
+    font-size: 12px;
+}
+.loclist_box_title span:nth-child(3){
+    font-size: 12px;
+}
+.loc_img_rounded{
+    border-radius: 15px !important;
+    border: 1px solid #fbfbfb;
+    width: 100px; 
+    height: 100px; 
+}
 
 </style>
