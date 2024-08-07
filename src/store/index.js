@@ -1,5 +1,7 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
+import modCommon from "./store-mod/common"
+import modProvider from "./store-mod/provider"
 
 Vue.use(Vuex);
 
@@ -35,5 +37,9 @@ export default new Vuex.Store({
     cartItems: state => state.cart,
     cartQuantity: state => state.cart.reduce((sum, item) => sum + item.quantity, 0),
     cartTotalPrice: state => state.cart.reduce((sum, item) => sum + item.totalPrice, 0)
+  },
+  modules: {
+    provider : modProvider,
+    common : modCommon
   }
 });
