@@ -82,6 +82,16 @@
 
 <script>
 export default {
+  mounted() {
+    // 사용자 배열을 로컬스토리지에 저장
+    const users = [
+      { id: 1, uid: "111111@naver.com", upw: "123456", uname: '유저1' },
+      { id: 2, uid: "222222", upw: "1234", uname: '유저2' },
+      { id: 3, uid: "333333", upw: "1234", uname: '유저3' },
+      { id: 4, uid: "444444", upw: "1234", uname: '유저4' },
+    ];
+    localStorage.setItem('users', JSON.stringify(users));
+  },
   data() {
     return {
       name: "Login",
@@ -119,6 +129,17 @@ export default {
       this.$router.push("Join");
     },
     DoLogin() {
+      const users = JSON.parse(localStorage.getItem('users')) || [];
+      const user = users.find(u => u.uid === this.user_id && u.upw === this.pwd);
+
+      if (user) {
+        alert(`환영합니다, ${user.uname}님.`);
+        localStorage.setItem('loggedInUser', JSON.stringify(user));
+        this.$router.push('/');
+      } else {
+        alert('아이디 또는 비밀번호를 확인해주세요.');
+      }
+
       this.$store.dispatch("DoLogin", {
         // 전송할 데이터(payload)
         sEmail: this.user_id,

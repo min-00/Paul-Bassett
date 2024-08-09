@@ -12,7 +12,9 @@
       v-for="item in navItems"
       :key="item.name"
       :to="item.link"
+      fab
       :class="{'active-btn': value === item.link}"
+      size="30"
     >
       <span>{{ item.name }}</span>
     <v-icon :class="{ 'active-icon': value === item.link }">
@@ -51,6 +53,8 @@ export default {
 </script>
 
 <style>
+
+
 .container {
   margin: 0 !important;
   padding: 0 !important;
@@ -120,10 +124,11 @@ export default {
   background-color: #ffffff;
 }
 
-/* .v-application .d-flex {
+.v-application .d-flex {
   display: flex !important;
   justify-content: space-evenly;
   align-items: center;
-} */
+  font-family: 'Noto Sans KR';
+}
 
 </style>

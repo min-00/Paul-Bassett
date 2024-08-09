@@ -42,8 +42,16 @@ const routes = [
     },
   {
     path: "/MyPage",
-    name: "MyPage",
-    component: MyPage
+      name: "MyPage",
+      component: MyPage,
+      beforeEnter: (to, from, next) => {
+        const user = JSON.parse(localStorage.getItem('user'));
+        if (user) {
+          next();
+        } else {
+          next('/Login');
+        }
+  }
   },
   {
     path: "/Login",

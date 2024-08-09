@@ -1,19 +1,13 @@
 <template>
   <div>
     <div class="header">
-    <div @click="goBack" class="goBack">
-      <v-icon size="28">
-        chevron_left
-      </v-icon>
-    </div>
-     <!-- <p class="menu_title">메뉴상세</p> -->
-      <p class="menu_title">장바구니 ( {{ cartQuantity }} )</p>
-    <div @click="clearCart" class="delete">
-      <v-icon size="28">
-        delete
-      </v-icon>
-    </div>
-      <v-icon @click="clearCart"></v-icon>
+      <div @click="goBack" class="goBack">
+        <v-icon size="28">chevron_left</v-icon>
+      </div>
+      <p class="menu_title">장바구니</p>
+      <div @click="clearCart" class="delete">
+        <v-icon size="28">delete</v-icon>
+      </div>
     </div>
 
     <div class="select_area">
@@ -25,40 +19,50 @@
       </div>
       <v-btn class="change_button">변경</v-btn>
     </div>
-
-    <div class="order_box">
-      <div class="order_item_box" v-for="item in cartItems" :key="item.id">
-        <div class="menulist_box">
-          <v-img class="img-rounded" :src="item.img" contain />
-          <div class="menulist_title">
+    <h3> 담긴수량 ( {{ cartQuantity }} )</h3>
+        <v-row class="white mt-6 pl-10 pr-10">
+      <v-col cols="12" class="d-flex P_12" style="padding: 20px 0 0;">
+        <p></p>
+      </v-col>
+      <v-col cols="12" class="d-flex justify-space-between" style="padding: 0;" v-for="item in cartItems" :key="item.id">
+        <v-col cols="4">
+          <v-img :src="item.img" :alt="item.name" style="width: 110px;" class="rounded-xl ml-2"></v-img>
+        </v-col>
+        <v-col cols="8" class="pa-5">
+          <div class="d-flex justify-space-between P_16">
             <p>{{ item.name }}</p>
-            <p>수량: {{ item.quantity }}</p>
-            <p>가격: {{ item.totalPrice.toLocaleString() }} 원</p>
+            <p> 수량 {{ item.quantity  }}</p>
+
+            <p v-if="item.options.extraShot">샷추가</p>
+
+                <p> {{ item.options.shotQuantity }} </p>
+
+            <p>{{ item.totalPrice.toLocaleString() }}원</p>
           </div>
-          <!-- 선택 삭제 아이콘 -->
-          <!-- <v-icon @click="removeFromCart(item.id)" class="remove-icon">
-            mdi-delete
-          </v-icon> -->
-        </div>
+          <!-- <div class="d-flex justify-space-between P_12 text_gray300">
+            <p v-if="item.options.extraShot">샷추가</p>
+            <p v-if="item.options.extraShot">+1000원</p>
+          </div> -->
+          <p>옵션 확인</p>
+                <div v-for="(value, key) in getFilteredOptions(item.id)" :key="key">
+                  <p class="P_12 text_gray300">{{ formatOptionKey(key) }}: {{ value }}</p>
+                  <p>  </p>
+                </div>
 
+          <p class="text-end mt-8">{{ item.totalPrice.toLocaleString() }}원</p>
+        </v-col>
+      </v-col>
+      <v-col cols="12" style="padding: 0;">
         <v-divider></v-divider>
-                  <!-- 아코디언(옵션) -->
-          <v-expansion-panels>         
-          <v-expansion-panel>
-            <v-expansion-panel-header>
-              선택된 옵션
-            </v-expansion-panel-header>
-            <v-expansion-panel-content>
-
-                  <ul v-for="(value, key) in getFilteredOptions(item.id)" :key="key">
-                    <li>
-                      <h4>{{ formatOptionKey(key) }}: {{ value }}</h4>
-                    </li>
-                  </ul>
-            </v-expansion-panel-content>
-          </v-expansion-panel>
-        </v-expansion-panels>  
-      </div>
+      </v-col>
+      <v-col cols="12" class="d-flex justify-space-between P_24 pa-4 font-weight-bold">
+        <p class="text_brown">결제 금액</p>
+        <p class="text_pink">{{ cartTotalPrice.toLocaleString() }}원</p>
+      </v-col>
+    </v-row>
+    
+    <div class="text-center mt-5">
+      <v-btn @click="handleOrderClick" color="black" class="text_white pa-4 ma-2" style="width: 210px;" large>주문하기</v-btn>
     </div>
   </div>
 </template>
@@ -68,11 +72,6 @@ import { mapGetters, mapActions } from 'vuex';
 import itemlist from '@/datasources/itemlist.js'; // 데이터 가져오기
 
 export default {
-  data() {
-    return {
-      selectedWaterAmount: null // 이 속성을 정의합니다
-    };
-  },
   computed: {
     ...mapGetters(['cartItems', 'cartQuantity', 'cartTotalPrice']),
     formatOptionKey() {
@@ -106,25 +105,40 @@ export default {
       const allOptions = { ...item.mainOptions, ...item.personalOptions };
       const cartItem = this.cartItems.find(cartItem => cartItem.id === itemId);
 
-      // 장바구니 아이템의 옵션만 필터링하여 반환
       return Object.keys(allOptions).reduce((result, key) => {
         if (allOptions[key] === true) {
           result[key] = cartItem.options[key] || '선택 안 함';
         }
         return result;
       }, {});
+    },
+    handleOrderClick() {
+      localStorage.setItem('cartItems', JSON.stringify(this.cartItems));
+      this.$router.push('/OrderInfo');
     }
   }
-};
+}
 </script>
 
-
-
 <style>
-
-ul li{
-  list-style: none;
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px;
+  border-bottom: 1px solid #ddd;
+  background: #fff;
 }
+
+.goBack, .delete {
+  cursor: pointer;
+}
+
+.menu_title {
+  font-size: 18px;
+  font-weight: bold;
+}
+
 .select_area {
   display: flex;
   align-items: center;
@@ -165,58 +179,42 @@ ul li{
   background-color: #f0f0f0;
 }
 
-.order_box{
-  width: 100%;
-  padding: 10px 10px;
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+.white {
+  background-color: #fff;
 }
-
-.order_item_box{
-  padding: 10px 10px;
-  box-sizing: border-box;
-  box-shadow: 0px 1px 4px 0px rgba(0,0,0,0.2);
-  border-radius: 20px;
-}
-
-.menulist_box {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  padding: 10px 10px;
-  box-sizing: border-box;
-
-  width: 200px;
-}
-
 
 .img-rounded {
   border-radius: 20px;
   border: 1px solid #fbfbfb;
-  width: 100px; 
-  height: 100px; 
+  width: 110px; 
+  height: 110px; 
 }
 
-.menulist_title {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
+.P_12 {
+  font-size: 12px;
 }
 
-.menulist_title > p {
+.text_gray300 {
+  color: #a3a3a3;
+}
+
+.text_brown {
+  color: #8d5a3e;
+}
+
+.text_pink {
+  color: #f06292;
+}
+
+.P_16 {
   font-size: 16px;
-  white-space: nowrap;
 }
 
-.total {
-  margin-top: 16px;
-  text-align: right;
-  font-size: 18px;
-}
-.v-responsive{
-  
+.P_24 {
+  padding: 24px;
 }
 
+.font-weight-bold {
+  font-weight: bold;
+}
 </style>

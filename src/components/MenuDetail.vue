@@ -8,49 +8,44 @@
       </v-icon>
     </div>
     <p class="menu_title">메뉴상세</p>
-    <div class="right_icons">
-    <div
-          class="favorite_btn"
-          @click="toggleFavorite"
-        >
-          <v-icon
-            size="24"
-            :color="isFavorite ? 'red' : '#000000'"
-          >
-            {{ isFavorite ? 'mdi-heart' : 'mdi-heart-outline' }}
-          </v-icon>
-        </div>
+  <div class="right_icons">
+  <div class="favorite_btn" @click="handleFavoriteClick">
+      <v-icon size="24" :color="isFavorite ? 'red' : '#000000'">
+        {{ isFavorite ? 'mdi-heart' : 'mdi-heart-outline' }}
+      </v-icon>
+    </div>
 
-    <Modal
+    <!-- 모달 컴포넌트들 -->
+  <Modal
       :isOpen="showLoginModal"
-      @update:isOpen="showLoginModal = $event"
+      @update:isOpen="val => showLoginModal = val"
+      closeText="로그인"
+      buttonType="login"
+      @redirectToLogin="handleLoginRedirect"
     >
       로그인 후 사용할 수 있습니다.
     </Modal>
-
     <Modal
       :isOpen="showAddFavoriteModal"
-      @update:isOpen="showAddFavoriteModal = $event"
+      @update:isOpen="val => showAddFavoriteModal = val"
+      closeText="확인"
+      buttonType="default"
     >
       나만의 메뉴로 등록되었습니다.
     </Modal>
 
     <Modal
       :isOpen="showRemoveFavoriteModal"
-      @update:isOpen="showRemoveFavoriteModal = $event"
+      @update:isOpen="val => showRemoveFavoriteModal = val"
+      closeText="확인"
+      buttonType="default"
     >
       나만의 메뉴에서 해제되었습니다.
     </Modal>
 
-    <CartIcon />
-    <!-- <router-link :to="{ path: '/cart' }" class="cart-link">
-    <v-badge v-if="cartQuantity > 0" :content="cartQuantity" color="red" class="cart-badge">
-      <v-icon class="default-icon">shopping_cart</v-icon>
-    </v-badge>
-    <v-icon v-else class="default-icon">shopping_cart</v-icon>
-  </router-link> -->
-    <!-- 장바구니 담기면 뱃지 있고 비어있으면 그냥 아이콘만 표시 -->
+      <CartIcon />
     </div>
+
   </div>
 
     <v-img :src="currentImageUrl" alt="상품 이미지" width="100%" height="300"></v-img>
@@ -355,10 +350,7 @@
         <span class="final_price"> {{ totalPrice }} 원</span>
       </div>
       
-      <div class="order_sec_bot">
-        <button class="order-btn" @click="AddToCart">담기</button>
-        <button class="order-now-btn">바로 주문하기</button>
-      </div>
+      
     </div>
       
     </v-sheet>
@@ -374,8 +366,9 @@
         <span class="final_price">{{ totalPrice }} 원</span>
       </div>
 
-      <div class="order_sec_bot">
-    <button class="order-btn" @click="AddToCart">담기</button>
+  <div class="order_sec_bot">
+      <button @click="handleAddToCart" class="order-btn">담기</button>
+
     <!-- 장바구니에 추가됨 모달 -->
     <Modal
       :isOpen="showAddToCartModal"
@@ -384,7 +377,8 @@
     >
       장바구니에 추가되었습니다.
     </Modal>
-        <button class="order-now-btn">바로 주문하기</button>
+
+    <button @click="handleOrderNow" class="order-now-btn">바로 주문하기</button>
       </div>
     </div>
 
@@ -414,9 +408,8 @@ export default {
       showAddFavoriteModal: false,
       showRemoveFavoriteModal: false,
       showAddToCartModal: false,
-
-      isFavorite: false, // 좋아요 버튼 
-      showBottomSheet: false, // 퍼스널 옵션 
+      isFavorite: false,
+      showBottomSheet: false,
       
       selectedOptions: {
         IceHot: 'hot', // 기본값 설정
@@ -437,9 +430,7 @@ export default {
     };
   },
   created() {
-    
     const id = parseInt(this.$route.params.id);
-
     const allItems = [
       ...itemlist.coffeeList,
       ...itemlist.LetteList,
@@ -461,12 +452,12 @@ export default {
     this.item = allItems.find(item => item.Id === id); // 해당 ID의 아이템 찾기
   },
   computed: {
+    // ...mapGetters(['isLoggedIn', 'cartQuantity']), // isLoggedIn을 computed로 가져와야 한다면 사용
     isLoggedIn() {
-      return true; // 항상 로그인된 상태 나중에 지울 거 
+      return !!localStorage.getItem('loggedInUser');
     },
     currentImageUrl() {
       if (this.item.imgUrlOption && this.item.imgUrlOption !== this.item.imgUrl) {
-        // imgUrlOption이 있을 때만 이미지 URL 반환
         return this.selectedOptions.IceHot === 'hot'
           ? this.item.imgUrlOption.hotImg
           : this.item.imgUrlOption.iceImg;
@@ -474,68 +465,76 @@ export default {
         return this.item.imgUrl;
       }
     },
-  totalPrice() {
-    let basePrice = parseInt(this.item.BasePrice, 10);
+    totalPrice() {
+      let basePrice = parseInt(this.item.BasePrice, 10);
 
-    // 사이즈 변경 가격
-    if (this.selectedOptions.size) {
-      const sizeOption = this.CommonOption.size.find(option => option.value === this.selectedOptions.size);
-      if (sizeOption) {
-        basePrice += sizeOption.price;
-      }
-    }
-
-    // 샷 추가 가격 계산
-    if (this.selectedOptions.extraShot === 'extraShot') {
-      basePrice += this.CommonOption.extraShot.price * this.selectedOptions.shotQuantity;
-    }
-
-    // 아이스크림 토핑 추가 가격
-    if (this.selectedOptions.iceCreamTopping && this.selectedOptions.iceCreamTopping !== 'none') {
-      const toppingOption = this.CommonOption.IceCreamtopping.find(option => option.value === this.selectedOptions.iceCreamTopping);
-      if (toppingOption) {
-        basePrice += toppingOption.price;
-      }
-    }
-
-    return basePrice * this.quantity; // 총 가격에 수량을 곱한 값 반환
-  }
-  },
-  methods: {
-    ...mapActions(['addToCart']), // 장바구니 
-    goBack() {
-      this.$router.go(-1);
-    },
-    AddToCart() {
-    this.showAddToCartModal = true;
-    const cartItem = {
-      id: this.item.Id,
-      name: this.item.Title,
-      quantity: this.quantity,
-      totalPrice: this.totalPrice,
-      img: this.currentImageUrl,
-      options: this.selectedOptions
-    };
-
-    this.$store.dispatch('addToCart', cartItem);
-  },
-  toggleFavorite() {
-      if (!this.isLoggedIn) {
-        this.showLoginModal = true;
-        setTimeout(() => {
-          this.$router.push('/login');
-        }, 2000);} 
-        else {
-        this.isFavorite = !this.isFavorite;
-        if (this.isFavorite) {
-          this.showAddFavoriteModal = true;
-        } else {
-          this.showRemoveFavoriteModal = true;
+      // 사이즈 변경 가격
+      if (this.selectedOptions.size) {
+        const sizeOption = this.CommonOption.size.find(option => option.value === this.selectedOptions.size);
+        if (sizeOption) {
+          basePrice += sizeOption.price;
         }
       }
+
+      // 샷 추가 가격 계산
+      if (this.selectedOptions.extraShot === 'extraShot') {
+        basePrice += this.CommonOption.extraShot.price * this.selectedOptions.shotQuantity;
+      }
+
+      // 아이스크림 토핑 추가 가격
+      if (this.selectedOptions.iceCreamTopping && this.selectedOptions.iceCreamTopping !== 'none') {
+        const toppingOption = this.CommonOption.IceCreamtopping.find(option => option.value === this.selectedOptions.iceCreamTopping);
+        if (toppingOption) {
+          basePrice += toppingOption.price;
+        }
+      }
+
+      return basePrice * this.quantity; // 총 가격에 수량을 곱한 값 반환
+    },
+  },
+  methods: {
+    ...mapActions([ 'addToCart']),
+    handleFavoriteClick() {
+      if (!this.isLoggedIn) {
+        this.showLoginModal = true; // 로그인 필요 모달 띄우기
+        return;
+      }
+
+      // 로그인 상태일 때 처리 로직
+      this.isFavorite = !this.isFavorite;
+
+      if (this.isFavorite) {
+        this.showAddFavoriteModal = true;
+      } else {
+        this.showRemoveFavoriteModal = true;
+      }
+    },
+    handleLoginRedirect() {
+      this.$router.push('/Login');
+    },
+    handleAddToCart() {
+      if (!this.isLoggedIn) {
+        this.showLoginModal = true; // 로그인 필요 모달 띄우기
+        return;
+      }
+      // 장바구니에 아이템 추가
+      this.addToCart({
+        id: this.item.Id,
+        name: this.item.Title,
+        quantity: this.quantity,
+        totalPrice: this.totalPrice,
+        img: this.currentImageUrl,
+        options: this.selectedOptions
+      });
+
+      this.showAddToCartModal = true; // 장바구니에 추가됨 모달 띄우기
+    },
+    
+    handleOrderNow() {
+      this.$route.push('/OrderInfo');
     },
     goBack() {
-      this.$router.go(-1); // 뒤로 가기
+      this.$router.go(-1);
     },
     increaseQuantity() {
       this.quantity += 1;
@@ -564,24 +563,23 @@ export default {
       }
     },
     formatOptionKey(key) {
-    const formattedKeys = {
-      IceHot: '온도',
-      size: '사이즈',
-      packaging: '포장 종류',
-      cupType: '컵 타입',
-      extraShot: '샷 추가',
-      shotQuantity: '샷 수량',
-      iceCreamTopping: '아이스크림 토핑',
-      milkType: '우유 종류',
-      sugar: '설탕',
-      HotLevel: '열기',
-      waterAmount: '물 양',
-      powder: '파우더',
-      cream: '크림'
-    };
-    return formattedKeys[key] || key;
-  }
-
+      const formattedKeys = {
+        IceHot: '온도',
+        size: '사이즈',
+        packaging: '포장 종류',
+        cupType: '컵 타입',
+        extraShot: '샷 추가',
+        shotQuantity: '샷 수량',
+        iceCreamTopping: '아이스크림 토핑',
+        milkType: '우유 종류',
+        sugar: '설탕',
+        HotLevel: '열기',
+        waterAmount: '물 양',
+        powder: '파우더',
+        cream: '크림'
+      };
+      return formattedKeys[key] || key;
+    }
   }
 }
 </script>

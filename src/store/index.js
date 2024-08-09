@@ -7,9 +7,11 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
+
     cart: []  // 장바구니 아이템 목록
   },
   mutations: {
+
     // 장바구니 아이템 추가
     ADD_TO_CART(state, item) {
       const existingItem = state.cart.find(cartItem => cartItem.id === item.id);
@@ -26,6 +28,7 @@ export default new Vuex.Store({
     }
   },
   actions: {
+
     addToCart({ commit }, item) {
       commit('ADD_TO_CART', item);
     },

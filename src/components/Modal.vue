@@ -9,7 +9,8 @@
         </div>
 
         <div class="modal_actions">
-            <v-btn class="modal_confirm_button" color="black" @click="closeModal">
+            <v-btn class="modal_confirm_button" color="black" :class="buttonClass"
+            @click="handleButtonClick">
             {{ closeText }}
             </v-btn>
         </div>
@@ -19,21 +20,41 @@
 
 <script>
 export default {
-    props: {
-        isOpen: {
-        type: Boolean,
-        required: true
-        },
-        closeText: {
-        type: String,
-        default: '확인'
-        }
+  props: {
+    isOpen: {
+      type: Boolean,
+      required: true
     },
-    methods: {
-        closeModal() {
-        this.$emit('update:isOpen', false);
-        }
+    closeText: {
+      type: String,
+      default: '확인'
+    },
+    buttonType: {
+      type: String,
+      default: 'default'
     }
+  },
+  computed: {
+    buttonClass() {
+      return {
+        'modal_confirm_button': true,
+        'login_button': this.buttonType === 'login',
+        'default_button': this.buttonType === 'default'
+      }
+    }
+  },
+  methods: {
+    handleButtonClick() {
+      if (this.buttonType === 'login') {
+        this.$emit('redirectToLogin');
+      } else {
+        this.closeModal();
+      }
+    },
+    closeModal() {
+      this.$emit('update:isOpen', false);
+    }
+  }
 };
 </script>
 
