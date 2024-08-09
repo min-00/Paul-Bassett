@@ -124,7 +124,7 @@ export default {
   background-color: #ffffff;
 }
 
-.v-application .d-flex {
+.v-application, .d-flex {
   display: flex !important;
   justify-content: space-evenly;
   align-items: center;
