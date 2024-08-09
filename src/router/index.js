@@ -14,7 +14,8 @@ import StoreSelection from "@/components/StoreSelection.vue"
 import KakaoMap from "@/components/KakaoMap.vue"
 import OrderHistory from "@/components/OrderHistory.vue"
 import OrderInfo from "@/components/OrderInfo.vue"
-import JoinEnd from "@/components/JoinEnd.vue";
+import JoinEnd from "@/components/JoinEnd.vue"
+import Coupon from "@/components/Coupon.vue";
 
 
 Vue.use(VueRouter)
@@ -41,18 +42,10 @@ const routes = [
       component: Cart
     },
   {
-      path: '/MyPage',
-      name: 'MyPage',
-      component: MyPage,
-      beforeEnter: (to, from, next) => {
-        const user = JSON.parse(localStorage.getItem('loggedInUser'));
-        if (user) {
-          next();
-        } else {
-          next('/Login');
-        }
-      }
-    },
+    path: "/MyPage",
+    name: "MyPage",
+    component: MyPage
+  },
   {
     path: "/Login",
     name: "Login",
@@ -98,6 +91,11 @@ const routes = [
     path: "/OrderInfo",
     name: "OrderInfo",
     component: OrderInfo
+  },
+  {
+    path: "/Coupon",
+    name: "Coupon",
+    component: Coupon
   }
 
 

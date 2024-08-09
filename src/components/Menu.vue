@@ -297,12 +297,15 @@
 
     <div class="select_store">
       <!-- <span> 주문할 매장을 선택해 주세요 </span> -->
-      <span> 
         <v-icon>
           location_on
         </v-icon>
-        강남삼성타운점 
-      </span>
+        <div v-if="selectedStore">
+          <p>{{ selectedStore.name }}</p>
+        </div>
+        <div v-else>
+          <p>매장 정보가 선택되지 않았습니다.</p>
+      </div>
       <router-link :to="{ path: '/StoreSelection' }">
         <v-btn class="select_store_btn">
           선택
@@ -356,6 +359,13 @@ export default {
   methods: {
     goToDetail(id) {
       this.$router.push({ name: 'MenuDetail', params: { id } });
+    }
+  },
+  computed: {
+
+    // 매장 선택
+    selectedStore() {
+      return this.$store.getters.selectedStore;
     }
   }
 
