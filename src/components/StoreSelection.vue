@@ -15,7 +15,7 @@
                     </v-card>
 
             <v-list>
-                <v-list-item v-for="store in stores" :key="store.locId">
+                <v-list-item v-for="store in stores" :key="store.locId" @click="selectStore(store)">
                     <div class="loclist_box">
                         <v-img class="loc_img_rounded" :src="store.loc_img" cover />
                     <div class="loclist_box_title">
@@ -49,7 +49,7 @@ export default{
     name:"StoreSelection",
     data(){
         return{
-            tab: "map",
+            tab: "stores",
             // stores를 추가
             stores: CommonOption.locationList,
         }
@@ -61,8 +61,12 @@ export default{
 
     },
     methods:{
-        
-        }
+        // 매장 선택
+        selectStore(store) {
+        this.$store.dispatch('storeSelection', store);
+        this.$router.push('/cart'); // 선택 후 카트 페이지로 이동
+    },
+    }
 }
 
 </script>
