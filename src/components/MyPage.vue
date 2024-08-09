@@ -20,12 +20,6 @@
                   <v-list-item-subtitle>{{ userInfo.uid }}</v-list-item-subtitle>
                 </v-list-item-content>
               </v-list-item>
-              <v-list-item>
-                <v-list-item-content>
-                  <v-list-item-title>비밀번호:</v-list-item-title>
-                  <v-list-item-subtitle>******</v-list-item-subtitle>
-                </v-list-item-content>
-              </v-list-item>
             </v-list>
           </v-card-text>
           <v-card-actions>
@@ -47,11 +41,6 @@ export default {
   data() {
     return {
       userInfo: JSON.parse(localStorage.getItem('loggedInUser')) || {},
-      orders: [
-        { id: '001', productName: '상품 1', price: 50000 },
-        { id: '002', productName: '상품 2', price: 15000 },
-        // 예시 주문 내역
-      ]
     };
   },
   methods: {
@@ -59,13 +48,9 @@ export default {
       // 로컬스토리지에서 사용자 정보 삭제
       localStorage.removeItem('loggedInUser');
 
-      // 로그인 페이지로 리다이렉트
-      this.$router.push('/Login'); // 로그인 페이지의 경로를 설정하세요.
+      this.$router.push('/Login');
     }
   }
 };
 </script>
 
-<style scoped>
-/* 여기에 스타일을 추가할 수 있습니다. */
-</style>

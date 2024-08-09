@@ -41,18 +41,18 @@ const routes = [
       component: Cart
     },
   {
-    path: "/MyPage",
-      name: "MyPage",
+      path: '/MyPage',
+      name: 'MyPage',
       component: MyPage,
       beforeEnter: (to, from, next) => {
-        const user = JSON.parse(localStorage.getItem('user'));
+        const user = JSON.parse(localStorage.getItem('loggedInUser'));
         if (user) {
           next();
         } else {
           next('/Login');
         }
-  }
-  },
+      }
+    },
   {
     path: "/Login",
     name: "Login",
